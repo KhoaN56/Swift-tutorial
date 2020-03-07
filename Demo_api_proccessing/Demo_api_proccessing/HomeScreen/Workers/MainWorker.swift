@@ -6,6 +6,8 @@
 //  Copyright © 2020 Khoa Nguyen. All rights reserved.
 //
 
+import Foundation
+
 class MainWorker {
     
     func loadData(link: String,  callBack: @escaping ([Movie]?, String) -> Void){
@@ -24,7 +26,8 @@ class MainWorker {
                     guard let imagePath = row["poster_path"] else{
                         continue
                     }
-                    movieList.append(Movie(title: row["title"] as! String,
+                    movieList.append(Movie(id: row["id"] as! Int,
+                                           title: row["title"] as! String,
                                            imagePath: imagePath as! String,
                                            overView: row["overview"] as! String,
                                            rate: row["vote_count"] as! Int,

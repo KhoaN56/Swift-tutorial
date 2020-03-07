@@ -16,7 +16,7 @@ protocol OnLoadMoviesCompleteListener {
 }
 
 
-class ViewController: UIViewController,UITableViewDataSource, OnLoadMoviesCompleteListener {
+class ViewController: UIViewController,UITableViewDataSource, OnLoadMoviesCompleteListener, UITableViewDelegate {
     
     // Check showing alert
     var isAlertShowing = false
@@ -38,10 +38,11 @@ class ViewController: UIViewController,UITableViewDataSource, OnLoadMoviesComple
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        mainRouter = MainRouter(self)
+        mainRouter = MainRouter(mainView: self)
         interactor = MainInteractor(listener: self)
         interactor.loadMovies(url: link)
         tableView.dataSource = self
+        tableView.delegate = self
     }
     
     // When loading movie success
@@ -69,6 +70,11 @@ class ViewController: UIViewController,UITableViewDataSource, OnLoadMoviesComple
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieList.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        print(indexPath.row)
+        mainRouter?.toDetailScreen(viewController: self, movieID: movieList[indexPath.row].id)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

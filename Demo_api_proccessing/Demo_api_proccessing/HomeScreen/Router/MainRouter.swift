@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
 protocol MainRouterProtocol {
-    func toDetailScreen(viewController: ViewController)
+    func toDetailScreen(viewController: ViewController, movieID: Int!)
 }
 
 class MainRouter : MainRouterProtocol{
@@ -20,7 +21,8 @@ class MainRouter : MainRouterProtocol{
         self.mainView = mainView
     }
     
-    func toDetailScreen(viewController: ViewController) {
-        mainView?.navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: <#T##Bool#>)
+    func toDetailScreen(viewController: ViewController, movieID: Int!) {
+        let detailViewController = DetailConfiguration.setup(movieID: movieID)
+        mainView?.navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
