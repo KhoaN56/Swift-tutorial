@@ -14,10 +14,10 @@ class MainWorker {
         let url = URL(string: link)
         let req = URLRequest(url: url!)
         URLSession.shared.dataTask(with: req) { (data, res, err) in
-            print(String(data: data!, encoding: .utf8)!)
+//            print(String(data: data!, encoding: .utf8)!)
             do{
                 let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [String: Any]
-                
+                // Get results from json dictionary
                 let rows = json["results"] as! [AnyObject]
                 var movieList:[Movie] = []
                 
@@ -26,6 +26,7 @@ class MainWorker {
                     guard let imagePath = row["poster_path"] else{
                         continue
                     }
+                    // Add to list
                     movieList.append(Movie(id: row["id"] as! Int,
                                            title: row["title"] as! String,
                                            imagePath: imagePath as! String,

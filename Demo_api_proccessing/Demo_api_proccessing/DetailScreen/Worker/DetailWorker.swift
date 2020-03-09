@@ -8,7 +8,7 @@
 
 import Foundation
 
-let link = "https://api.themoviedb.org/3/movie/"
+let baseURL = "https://api.themoviedb.org/3/movie/"
 
 //protocol DetailWorkerProtocol {
 //    func loadData(movieID: Int!, onSuccess: ([String: Any]) -> Void, onFailure: (String) -> Void)
@@ -21,7 +21,8 @@ class DetailWorker {
             onComplete(nil, "Movie ID not found!")
             return
         }
-        let url = URL(string: link + String(movieID) + "?api_key=0ca6327142783ed7b013409b525073ac&language=en-US")
+        let link = baseURL + String(movieID) + "?api_key=0ca6327142783ed7b013409b525073ac&language=en-US"
+        let url = URL(string: link)
         guard let apiLink = url else{
             onComplete(nil, "Fail to create url to get data.")
             return

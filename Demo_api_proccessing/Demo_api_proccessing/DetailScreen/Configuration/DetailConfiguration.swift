@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class DetailConfiguration {
-    static func setup(movieID: Int) -> DetailViewController {
+    static func setup(movieID: Int) -> UIViewController {
         let controller = DetailViewController()
         let router = DetailRouter(controller: controller)
         let presenter = DetailPresenter(controller: controller)

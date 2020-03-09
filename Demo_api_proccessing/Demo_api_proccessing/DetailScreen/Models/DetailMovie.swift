@@ -13,16 +13,19 @@ class DetailMovie {
     let title: String!
     let backdropPath: String!
     let overview: String!
+    let originalTitle: String!
     
-    init(title: String!, backdropPath: String!, overview: String!) {
+    init(title: String!, backdropPath: String!, overview: String!, originalTitle: String!) {
         self.title = title
         self.backdropPath = backdropPath
         self.overview = overview
+        self.originalTitle = originalTitle
     }
     
     init(json: [String: Any]) {
         self.title = json["title"] as? String
         self.backdropPath = json["backdrop_path"] as? String
         self.overview = json["overview"] as? String
+        self.originalTitle = json["original_title"] as? String
     }
 }

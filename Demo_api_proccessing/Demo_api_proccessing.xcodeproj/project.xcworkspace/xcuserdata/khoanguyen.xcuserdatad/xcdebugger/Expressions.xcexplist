@@ -3,18 +3,27 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "GLOBAL">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.movieList[indexPath.row].imgData">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "ViewController.onLoadImageSuccess(image:index:):ViewController.swift">
       </ContextState>
       <ContextState
+         contextName = "DetailViewController.viewDidLoad():DetailViewController.swift">
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in closure #1 in MainWorker.run(link:):MainWorker.swift">
+      </ContextState>
+      <ContextState
+         contextName = "DetailWorker.loadData(movieID:onComplete:):DetailWorker.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "let apiLink = url">
+            </PersistentString>
+            <PersistentString
+               value = "link + String(movieID) + &quot;?api_key=0ca6327142783ed7b013409b525073ac&amp;language=en-US&quot;">
+            </PersistentString>
+            <PersistentString
+               value = "guard let apiLink = url">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "closure #1 in MainWorker.run(link:):MainWorker.swift">
@@ -30,6 +39,17 @@
       </ContextState>
       <ContextState
          contextName = "ViewController.onSuccess(movieList:):ViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MainRouter.toDetailScreen(viewController:movieID:):MainRouter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "viewController.navigationController">
+            </PersistentString>
+            <PersistentString
+               value = "mainView?.navigationController">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
    </ContextStates>
 </VariablesViewState>

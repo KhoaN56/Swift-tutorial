@@ -16,7 +16,7 @@ protocol OnLoadMoviesCompleteListener {
 }
 
 
-class ViewController: UIViewController,UITableViewDataSource, OnLoadMoviesCompleteListener, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, OnLoadMoviesCompleteListener, UITableViewDelegate {
     
     // Check showing alert
     var isAlertShowing = false

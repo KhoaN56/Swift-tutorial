@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="Demo_api_proccessing" customModuleProvider="target">
             <connections>
                 <outlet property="backdropImg" destination="K2O-ZU-f0D" id="45P-NE-ULB"/>
+                <outlet property="lblOriginalTitle" destination="PHn-qb-Eht" id="bga-0w-2hN"/>
                 <outlet property="lblOverview" destination="pNu-Ek-7ig" id="rwz-dQ-lF6"/>
                 <outlet property="lblTitle" destination="Acw-tt-Xin" id="bgh-0l-OW5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -22,6 +23,9 @@
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K2O-ZU-f0D">
                     <rect key="frame" x="8" y="60" width="398" height="207"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="207" id="BYJ-wb-Ghh"/>
+                    </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Acw-tt-Xin" userLabel="title">
                     <rect key="frame" x="8" y="275" width="398" height="23"/>
@@ -30,26 +34,32 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNu-Ek-7ig" userLabel="overview">
-                    <rect key="frame" x="8" y="314" width="398" height="20.5"/>
+                    <rect key="frame" x="8" y="337" width="398" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PHn-qb-Eht" userLabel="original title">
+                    <rect key="frame" x="8" y="306" width="398" height="23"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="K2O-ZU-f0D" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.961353" id="5Pi-dC-JUn"/>
+                <constraint firstItem="K2O-ZU-f0D" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="0uW-Bb-yRn"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="K2O-ZU-f0D" secondAttribute="trailing" constant="8" id="AJw-qt-PGc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PHn-qb-Eht" secondAttribute="trailing" constant="8" id="Dz1-sz-3jM"/>
                 <constraint firstItem="Acw-tt-Xin" firstAttribute="top" secondItem="K2O-ZU-f0D" secondAttribute="bottom" constant="8" id="FVc-pV-qAm"/>
+                <constraint firstItem="PHn-qb-Eht" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="LaT-KI-s9l"/>
                 <constraint firstItem="K2O-ZU-f0D" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="T6R-tZ-0YK"/>
+                <constraint firstItem="pNu-Ek-7ig" firstAttribute="top" secondItem="PHn-qb-Eht" secondAttribute="bottom" constant="8" id="WZL-pm-heU"/>
                 <constraint firstItem="pNu-Ek-7ig" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="cjU-S5-ubI"/>
-                <constraint firstItem="K2O-ZU-f0D" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="jCP-Td-4og"/>
                 <constraint firstItem="Acw-tt-Xin" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="kKd-Mh-BSG"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="K2O-ZU-f0D" secondAttribute="trailing" constant="8" id="nVR-dB-J0y"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Acw-tt-Xin" secondAttribute="trailing" constant="8" id="tzc-q6-zlA"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pNu-Ek-7ig" secondAttribute="trailing" constant="8" id="vlQ-eL-LNt"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Acw-tt-Xin" secondAttribute="bottom" constant="564" id="wKv-dX-8ES"/>
-                <constraint firstItem="pNu-Ek-7ig" firstAttribute="top" secondItem="Acw-tt-Xin" secondAttribute="bottom" constant="16" id="x6a-8a-Bp9"/>
-                <constraint firstItem="Acw-tt-Xin" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.961353" id="y4I-UU-tGc"/>
+                <constraint firstItem="PHn-qb-Eht" firstAttribute="top" secondItem="Acw-tt-Xin" secondAttribute="bottom" constant="8" id="xvV-Qk-7Sg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="141.96428571428569"/>

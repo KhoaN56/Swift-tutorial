@@ -23,6 +23,6 @@ class MainRouter : MainRouterProtocol{
     
     func toDetailScreen(viewController: ViewController, movieID: Int!) {
         let detailViewController = DetailConfiguration.setup(movieID: movieID)
-        mainView?.navigationController?.pushViewController(detailViewController, animated: true)
+        viewController.navigationController?.pushViewController(detailViewController, animated: true)
     }
 }

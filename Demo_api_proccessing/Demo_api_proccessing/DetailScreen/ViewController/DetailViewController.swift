@@ -22,12 +22,12 @@ class DetailViewController: UIViewController, DetailViewControllerProtocol {
 
     @IBOutlet weak var backdropImg: UIImageView!
     @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lblOriginalTitle: UILabel!
     @IBOutlet weak var lblOverview: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        reloadInputViews()
         if let id = movieID {
             interactor?.loadDetail(movieId: id)
         }
@@ -52,7 +52,13 @@ extension DetailViewController{
         let queue = DispatchQueue(label: "Loading backdrop")
         queue.async {
             do{
-                let data = try Data(contentsOf: URL(fileURLWithPath: "https://image.tmdb.org/t/p/w500\(String(describing: detailMovie.backdropPath))"))
+                let url = URL(string: "https://image.tmdb.org/t/p/w500\(detailMovie.backdropPath ?? "")")
+                guard let imgLink = url else{
+                    print("https://image.tmdb.org/t/p/original\(String(describing: detailMovie.backdropPath))")
+                    print("Can't create link")
+                    return
+                }
+                let data = try Data(contentsOf: imgLink)
                 DispatchQueue.main.async {
                     self.backdropImg.image = UIImage(data: data)
                 }
@@ -61,6 +67,7 @@ extension DetailViewController{
             }
         }
         lblTitle.text = detailMovie.title
+        lblOriginalTitle.text = "(\(detailMovie.originalTitle ?? ""))"
         lblOverview.text = detailMovie.overview
     }
     
@@ -70,8 +77,13 @@ extension DetailViewController{
     }
     
     func alertError(message: String!) {
-        let alertDialog = UIAlertController(title: "Alert", message: message, preferredStyle: UIAlertController.Style.actionSheet)
+        guard let errMsg = message else{
+            print("Error fetching error message...")
+            return
+        }
+        let alertDialog = UIAlertController(title: "Alert", message: errMsg, preferredStyle: UIAlertController.Style.alert)
         alertDialog.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil))
         show(alertDialog, sender: nil)
+        print(errMsg)
     }
 }
